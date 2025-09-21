@@ -315,3 +315,41 @@ backend/
 ---
 
 _Lycka till med vidareutvecklingen!_
+
+## 🛠 Utvecklarworkflow
+
+Detta projekt använder:
+- **Husky** för pre-commit hooks
+- **lint-staged** för att bara lint:a ändrade filer
+- **commitlint** för att säkerställa Conventional Commits
+- **ESLint** med strikt konfiguration
+- **Jest** för tester med coverage
+
+### Lokalt flöde
+1. Skapa en ny branch från `main` (`feat/*`, `fix/*`, `chore/*`).
+2. Kör `npm install` i `backend/` vid behov.
+3. Kör `npm run lint` för att säkerställa stil och regler.
+4. Kör `npm test` (`jest --coverage`).
+5. Gör dina commits – hookarna kör automatiskt lint-staged + commitlint.
+6. Skicka Pull Request → CI måste vara grön innan merge.
+
+### Commit-format (sammanfattning)
+`<type>(<scope>): <beskrivning>` – ex: `feat(auth): add refresh token rotation`.
+
+### Vanliga script
+```bash
+cd backend
+npm run lint
+npm test
+npm run cleanup -- --dry-run --json
+```
+
+### Kodstil & kvalitet
+- Zero warnings policy (`--max-warnings=0`).
+- Alla tokens revokeras korrekt vid rollnedgradering (testtäckning finns).
+- Cleanup-script testas för JSON, rotation och felhantering.
+
+### Rek. innan PR
+- Uppdatera dokumentation vid nya endpoints.
+- Lägg till tester för ny logik.
+- Håll commits små och fokuserade.
