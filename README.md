@@ -317,7 +317,10 @@ backend/
 
 _Lycka till med vidareutvecklingen!_
 
-## 🛠 Utvecklarworkflow
+## � Säkerhetsrapportering
+Se [SECURITY.md](SECURITY.md) för information om hur du rapporterar sårbarheter.
+
+## �🛠 Utvecklarworkflow
 
 Detta projekt använder:
 
