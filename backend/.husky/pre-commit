@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Run lint-staged for staged files only (faster than full repo lint)
+npx lint-staged

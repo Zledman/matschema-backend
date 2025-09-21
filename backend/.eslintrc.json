@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "env": {
+    "es2022": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "caughtErrors": "none" }],
+    "no-undef": "error",
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+    "prefer-const": "warn",
+    "no-var": "error",
+    "object-shorthand": ["warn", "always"],
+    "arrow-body-style": ["warn", "as-needed"],
+    "callback-return": "off"
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.js"],
+      "env": { "jest": true },
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["scripts/**/*.js"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+name: Lint & Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Install dependencies
+        run: npm ci --prefix backend
+      - name: Lint
+        run: npm run lint --prefix backend
+      - name: Build
+        run: npm run build --prefix backend
