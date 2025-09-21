@@ -2,9 +2,10 @@
 
 [Läs våra riktlinjer för att bidra](CONTRIBUTING.md)
 
-[![CI](https://github.com/SimonDev/matschema-projekt/actions/workflows/ci.yml/badge.svg)](https://github.com/SimonDev/matschema-projekt/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/SimonDev/matschema-projekt/branch/main/graph/badge.svg)](https://codecov.io/gh/SimonDev/matschema-projekt)
-[![Lint & Build](https://github.com/SimonDev/matschema-projekt/actions/workflows/lint-build.yml/badge.svg)](https://github.com/SimonDev/matschema-projekt/actions/workflows/lint-build.yml)
+![CI](https://github.com/<user>/<repo>/actions/workflows/ci.yml/badge.svg)
+![Lint & Build](https://github.com/<user>/<repo>/actions/workflows/lint-build.yml/badge.svg)
+[![codecov](https://codecov.io/gh/<user>/<repo>/branch/main/graph/badge.svg)](https://codecov.io/gh/<user>/<repo>)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)
 ![Node Versions](https://img.shields.io/badge/node-18.x%20|%2020.x-brightgreen)
 
@@ -319,6 +320,7 @@ _Lycka till med vidareutvecklingen!_
 ## 🛠 Utvecklarworkflow
 
 Detta projekt använder:
+
 - **Husky** för pre-commit hooks
 - **lint-staged** för att bara lint:a ändrade filer
 - **commitlint** för att säkerställa Conventional Commits
@@ -326,6 +328,7 @@ Detta projekt använder:
 - **Jest** för tester med coverage
 
 ### Lokalt flöde
+
 1. Skapa en ny branch från `main` (`feat/*`, `fix/*`, `chore/*`).
 2. Kör `npm install` i `backend/` vid behov.
 3. Kör `npm run lint` för att säkerställa stil och regler.
@@ -334,9 +337,11 @@ Detta projekt använder:
 6. Skicka Pull Request → CI måste vara grön innan merge.
 
 ### Commit-format (sammanfattning)
+
 `<type>(<scope>): <beskrivning>` – ex: `feat(auth): add refresh token rotation`.
 
 ### Vanliga script
+
 ```bash
 cd backend
 npm run lint
@@ -345,11 +350,13 @@ npm run cleanup -- --dry-run --json
 ```
 
 ### Kodstil & kvalitet
+
 - Zero warnings policy (`--max-warnings=0`).
 - Alla tokens revokeras korrekt vid rollnedgradering (testtäckning finns).
 - Cleanup-script testas för JSON, rotation och felhantering.
 
 ### Rek. innan PR
+
 - Uppdatera dokumentation vid nya endpoints.
 - Lägg till tester för ny logik.
 - Håll commits små och fokuserade.
