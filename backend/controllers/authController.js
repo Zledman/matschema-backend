@@ -149,6 +149,13 @@ const loginUser = async (req, res) => {
     } catch (e) {
       console.warn("Failed creating session entry", e.message);
     }
+    // Persist login security log (non-blocking)
+    try {
+      const LoginLog = require('../models/LoginLog');
+      LoginLog.create({ userId: user._id, ip, userAgent: ua }).catch(()=>{});
+    } catch (e) {
+      // ignore logging failure
+    }
     if (isNewDevice) {
       // Skicka notifiering asynkront (ej vänta på svar)
       sendNewLoginEmail(user, { ip, userAgent: ua, time: new Date() }).catch((e) => {
